@@ -1,7 +1,14 @@
+using Entra21.CSharp.ClinicaVeterinario.Repositorio.BancoDados;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+builder.Services.AddDbContext<ClinicaVeterinarioContexto>(options =>
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("SqlServer")));
 
 var app = builder.Build();
 

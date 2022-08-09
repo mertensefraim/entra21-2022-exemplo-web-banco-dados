@@ -1,9 +1,18 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Entra21.CSharp.ClinicaVeterinaria.Servico;
+using Entra21.CSharp.ClinicaVeterinario.Repositorio.BancoDados;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Entra21.CSharp.ClinicaVeterinaria.Aplicacao.Controllers
 {
     public class RacaController : Controller
     {
+        private readonly RacaServico _racaServico;
+
+        public RacaController(ClinicaVeterinarioContexto contexto)
+        {
+            _racaServico = new RacaServico(contexto);
+        }
+
         /// <summary>
         /// Endpoint que permite listar todas as raças
         /// </summary>
@@ -28,6 +37,8 @@ namespace Entra21.CSharp.ClinicaVeterinaria.Aplicacao.Controllers
             [FromQuery] string nome,
             [FromQuery] string especie)
         {
+
+            _racaServico.Cadastrar(nome, especie);
             return RedirectToAction("Index");
         }
     }
