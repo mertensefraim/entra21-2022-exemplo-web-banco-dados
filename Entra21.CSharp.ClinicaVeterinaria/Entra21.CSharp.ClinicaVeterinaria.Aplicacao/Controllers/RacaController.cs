@@ -21,6 +21,11 @@ namespace Entra21.CSharp.ClinicaVeterinaria.Aplicacao.Controllers
         [HttpGet]
         public IActionResult ObterTodos()
         {
+            var racas = _racaServico.ObterTodos();
+            
+            // Passar informações do C# para o HTML
+            ViewBag.Racas = racas;
+            
             return View("Index");
         }
 
@@ -37,7 +42,6 @@ namespace Entra21.CSharp.ClinicaVeterinaria.Aplicacao.Controllers
             [FromQuery] string nome,
             [FromQuery] string especie)
         {
-
             _racaServico.Cadastrar(nome, especie);
             return RedirectToAction("Index");
         }
