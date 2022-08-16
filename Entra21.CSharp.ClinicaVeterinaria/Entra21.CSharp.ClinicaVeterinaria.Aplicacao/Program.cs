@@ -7,8 +7,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 
 builder.Services.AddDbContext<ClinicaVeterinarioContexto>(options =>
+{
     options.UseSqlServer(
-        builder.Configuration.GetConnectionString("SqlServer")));
+        builder.Configuration.GetConnectionString("SqlServer"));
+});
 
 var app = builder.Build();
 
