@@ -37,7 +37,7 @@ namespace Entra21.CSharp.ClinicaVeterinaria.Servico
             return racasDoBanco;
         }
 
-        public void Alterar(int id, string nome, string especie)
+        public void Editar(int id, string nome, string especie)
         {
             var raca = new Raca();
 
