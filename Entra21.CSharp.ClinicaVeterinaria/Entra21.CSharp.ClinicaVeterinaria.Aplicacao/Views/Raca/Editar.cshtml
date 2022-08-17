@@ -1,11 +1,29 @@
-﻿<h1>Editar Raça</h1>
+﻿@using Entra21.CSharp.ClinicaVeterinario.Repositorio.Entidades
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+    var raca = ViewBag.Raca as Raca;
+    var especies = ViewBag.Especies as List<string>;
+}
 
-<form method="post" action="/raca/editar">
-    <label for="campo-nome">Nome: </label>
-    <input type="text" id="campo-nome" name="nome" />
-    <label for="campo-especie">Espécie: </label>
-    <select id="campo-especie" name="especie">
-        <option value="Cachorro">Cachorro</option>
-        <option value="Gato">Gato</option>
+
+<h1>Cadastro de Raça</h1>
+
+<form action="alterar" method="get">
+    <input type="hidden" name="id" value="@raca.Id"/>
+    <div class="form-group col-md-12">
+        <label for="campo_nome">Nomes <span class="text-danger fm-bold">*</span></label>
+        <input class="form-control" type="text" id="campo_nome" name="nome" required="required" value="@raca.Nome" />
+    </div>
+    <div class="form-group col-md-12 mb-2" />
+    <label for="campo_especie">Espécie <span class="text-danger fm-bold">*</span></label>
+    <select class="form-select mb-2" id="campo_especie" name="especie" required="required">
+        @foreach (var especie in especies)
+        {
+            <option value="@especie" @(especie == raca.Especie ? "selected" : "")>@especie</option>
+        }
     </select>
+    <div>
+        <a href="/raca" class="btn btn-outline-danger float-start">Cancelar <i class="fa-solid fa-x"></i></a>
+        <button class="btn btn-success float-end" type="submit">Salvar <i class="fas fa-arrow-right"></i></button>
+    </div>
 </form>

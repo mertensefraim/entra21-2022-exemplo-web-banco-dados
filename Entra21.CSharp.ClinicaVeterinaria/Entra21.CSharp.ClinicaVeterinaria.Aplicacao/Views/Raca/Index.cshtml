@@ -2,7 +2,6 @@
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
-
 <h1>Lista de raças</h1>
 <div class="row mb-2">
     <div class="text-end">
@@ -18,6 +17,7 @@
             <th>Código</th>    <!-- coluna específica do cabeçalho -->
             <th>Nome</th>    <!-- coluna específica do cabeçalho -->
             <th>Espécie</th>    <!-- coluna específica do cabeçalho -->
+            <th>Ações</th>    <!-- coluna específica do cabeçalho -->
         </tr>
     </thead>
     <tbody>
@@ -27,7 +27,15 @@
             <tr>
                 <td>@raca.Id</td>
                 <td>@raca.Nome</td>
-                <td>@raca.Especie</td>               
+                <td>@raca.Especie</td>
+                <td>
+                    <a href="/raca/apagar?id=@raca.Id" class="btn btn-danger">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                    <a href="/raca/editar?id=@raca.Id" class="btn btn-warning">
+                        <i class="fa-solid fa-file-pen"></i>
+                    </a>
+                </td>
             </tr>
         }
     </tbody>
