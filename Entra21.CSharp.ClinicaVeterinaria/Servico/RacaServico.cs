@@ -1,4 +1,5 @@
-﻿using Entra21.CSharp.ClinicaVeterinario.Repositorio;
+﻿using Entra21.CSharp.ClinicaVeterinaria.Servico.ViewModels;
+using Entra21.CSharp.ClinicaVeterinario.Repositorio;
 using Entra21.CSharp.ClinicaVeterinario.Repositorio.BancoDados;
 using Entra21.CSharp.ClinicaVeterinario.Repositorio.Entidades;
 using System;
@@ -11,7 +12,7 @@ namespace Entra21.CSharp.ClinicaVeterinaria.Servico
 {
     public class RacaServico : IRacaServico
     {
-        private readonly RacaRepositorio _racaRepositorio;
+        private readonly IRacaRepositorio _racaRepositorio;
 
         // Construtor: construir o objeto de RacaServico cim o mínimo para a correta execução
         public RacaServico(ClinicaVeterinarioContexto contexto)
@@ -21,11 +22,11 @@ namespace Entra21.CSharp.ClinicaVeterinaria.Servico
 
         // A classe RacaServico irá implementar a interface IRacaService,
         // ou seja, deverá honrar as clausulas definidos na interface(contrato)
-        public void Cadastrar(string nome, string especie)
+        public void Cadastrar(RacaCadastrarViewModel racaCadastrarViewModel)
         {
             var raca = new Raca();
-            raca.Nome = nome;
-            raca.Especie = especie;
+            raca.Nome = racaCadastrarViewModel.Nome;
+            raca.Especie = racaCadastrarViewModel.Especie;
 
             _racaRepositorio.Cadastrar(raca);
         }
@@ -37,13 +38,13 @@ namespace Entra21.CSharp.ClinicaVeterinaria.Servico
             return racasDoBanco;
         }
 
-        public void Editar(int id, string nome, string especie)
+        public void Editar(RacaEditarViewModel racaEditarViewModel)
         {
             var raca = new Raca();
 
-            raca.Id = id;
-            raca.Nome = nome;
-            raca.Especie = especie;
+            raca.Id = racaEditarViewModel.Id;
+            raca.Nome = racaEditarViewModel.Nome;
+            raca.Especie = racaEditarViewModel.Especie;
             
             _racaRepositorio.Atualizar(raca);
         }
