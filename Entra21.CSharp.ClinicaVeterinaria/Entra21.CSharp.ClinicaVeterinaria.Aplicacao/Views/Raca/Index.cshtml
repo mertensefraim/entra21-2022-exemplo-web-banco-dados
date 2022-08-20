@@ -1,11 +1,9 @@
-﻿@{
-    Layout = "~/Pages/Shared/_Layout.cshtml";
-}
+﻿@model List<Raca>
 
-<h1>Lista de raças</h1>
+<h2>Lista de raças</h2>
 <div class="row mb-2">
     <div class="text-end">
-        <a href="/raca/Cadastrar/" class="btn btn-primary">Cadastrar</a>
+        <a asp-action="cadastrar" class="btn btn-primary">Cadastrar</a>
     </div>
 </div>
 
@@ -29,10 +27,10 @@
                 <td>@raca.Nome</td>
                 <td>@raca.Especie</td>
                 <td>
-                    <a href="/raca/apagar?id=@raca.Id" class="btn btn-danger">
+                    <a asp-action="editar" asp-route-id="@raca.Id" class="btn btn-danger">
                         <i class="fa fa-trash"></i>
                     </a>
-                    <a href="/raca/editar?id=@raca.Id" class="btn btn-warning">
+                    <a asp-action="apagar" asp-route-id="@raca.Id" class="btn btn-warning">
                         <i class="fa-solid fa-file-pen"></i>
                     </a>
                 </td>
