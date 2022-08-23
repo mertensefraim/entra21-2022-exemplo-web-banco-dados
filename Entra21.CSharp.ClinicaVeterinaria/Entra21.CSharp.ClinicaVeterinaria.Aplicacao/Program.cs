@@ -14,6 +14,13 @@ builder.Services.AddDbContext<ClinicaVeterinarioContexto>(options =>
 
 var app = builder.Build();
 
+using(var scopo = app.Services.CreateScope())
+{
+    var contexto = scopo.ServiceProvider.GetService<ClinicaVeterinarioContexto>();
+    contexto.Database.EnsureCreated();
+}
+
+
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {

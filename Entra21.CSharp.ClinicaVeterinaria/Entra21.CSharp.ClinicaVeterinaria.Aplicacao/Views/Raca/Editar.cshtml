@@ -1,29 +1,29 @@
-﻿@*@using Entra21.CSharp.ClinicaVeterinario.Repositorio.Entidades
+﻿@model Entra21.CSharp.ClinicaVeterinaria.Servico.ViewModels.RacaEditarViewModel;
 @{
-    Layout = "~/Pages/Shared/_Layout.cshtml";
-    var raca = ViewBag.Raca as Raca;
     var especies = ViewBag.Especies as List<string>;
+    especies.Add("Selecione uma espécie");
+
+    var selectDasEspecies = new SelectList(especies, "Selecione uma espécie");
 }
 
 
 <h1>Cadastro de Raça</h1>
 
-<form action="/raca/editar" method="POST">
-    <input type="hidden" name="id" value="@raca.Id"/>
+<form asp-action="editar" method="POST">
+    <input type="hidden" asp-for="Id"/>
+
     <div class="form-group col-md-12">
-        <label for="campo_nome">Nomes <span class="text-danger fm-bold">*</span></label>
-        <input class="form-control" type="text" id="campo_nome" name="nome" required="required" value="@raca.Nome" />
+        <label asp-for="Nome" class="form-label"></label>
+        <input asp-for="Nome" class="form-control" />
+        <span asp-validation-for="Nome" class="text-danger"></span>
     </div>
+
     <div class="form-group col-md-12 mb-2" />
-    <label for="campo_especie">Espécie <span class="text-danger fm-bold">*</span></label>
-    <select class="form-select mb-2" id="campo_especie" name="especie" required="required">
-        @foreach (var especie in especies)
-        {
-            <option value="@especie" @(especie == raca.Especie ? "selected" : "")>@especie</option>
-        }
-    </select>
+    <label asp-for="Especie"></label>
+    <select asp-for="Especie" asp-items="selectDasEspecies" class="form-select mb-2"></select>
+    <span asp-validation-for="Especie" class="text-danger"></span>
     <div>
         <a href="/raca" class="btn btn-outline-danger float-start">Cancelar <i class="fa-solid fa-x"></i></a>
         <button class="btn btn-success float-end" type="submit">Salvar <i class="fas fa-arrow-right"></i></button>
     </div>
-</form>*@
+</form>

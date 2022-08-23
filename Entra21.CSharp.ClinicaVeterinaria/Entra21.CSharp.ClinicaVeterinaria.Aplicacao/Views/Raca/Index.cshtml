@@ -20,17 +20,17 @@
     </thead>
     <tbody>
         <!-- Lugar dos registros da tabela-->
-        @foreach (var raca in ViewBag.Racas)
+        @foreach (var raca in Model)
         {
             <tr>
                 <td>@raca.Id</td>
                 <td>@raca.Nome</td>
                 <td>@raca.Especie</td>
                 <td>
-                    <a asp-action="editar" asp-route-id="@raca.Id" class="btn btn-danger">
+                    <a asp-action="apagar" asp-route-id="@raca.Id" class="btn btn-danger">
                         <i class="fa fa-trash"></i>
                     </a>
-                    <a asp-action="apagar" asp-route-id="@raca.Id" class="btn btn-warning">
+                    <a asp-action="editar" asp-route-id="@raca.Id" class="btn btn-warning">
                         <i class="fa-solid fa-file-pen"></i>
                     </a>
                 </td>
