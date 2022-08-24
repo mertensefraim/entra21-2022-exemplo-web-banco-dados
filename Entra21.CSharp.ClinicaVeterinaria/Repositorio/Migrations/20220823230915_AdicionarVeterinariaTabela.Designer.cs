@@ -4,6 +4,7 @@ using Entra21.CSharp.ClinicaVeterinario.Repositorio.BancoDados;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Entra21.CSharp.ClinicaVeterinaria.Repositorio.Migrations
 {
     [DbContext(typeof(ClinicaVeterinarioContexto))]
-    partial class ClinicaVeterinarioContextoModelSnapshot : ModelSnapshot
+    [Migration("20220823230915_AdicionarVeterinariaTabela")]
+    partial class AdicionarVeterinariaTabela
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

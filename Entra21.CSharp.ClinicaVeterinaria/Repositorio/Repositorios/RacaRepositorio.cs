@@ -1,7 +1,7 @@
 ﻿using Entra21.CSharp.ClinicaVeterinario.Repositorio.BancoDados;
 using Entra21.CSharp.ClinicaVeterinario.Repositorio.Entidades;
 
-namespace Entra21.CSharp.ClinicaVeterinario.Repositorio
+namespace Entra21.CSharp.ClinicaVeterinaria.Repositorio.Repositorios
 {
     public class RacaRepositorio : IRacaRepositorio
     {

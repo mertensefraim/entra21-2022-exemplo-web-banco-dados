@@ -1,12 +1,6 @@
-﻿using Entra21.CSharp.ClinicaVeterinaria.Servico.ViewModels;
-using Entra21.CSharp.ClinicaVeterinario.Repositorio;
-using Entra21.CSharp.ClinicaVeterinario.Repositorio.BancoDados;
+﻿using Entra21.CSharp.ClinicaVeterinaria.Repositorio.Repositorios;
+using Entra21.CSharp.ClinicaVeterinaria.Servico.ViewModels.Racas;
 using Entra21.CSharp.ClinicaVeterinario.Repositorio.Entidades;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Entra21.CSharp.ClinicaVeterinaria.Servico
 {
@@ -15,9 +9,9 @@ namespace Entra21.CSharp.ClinicaVeterinaria.Servico
         private readonly IRacaRepositorio _racaRepositorio;
 
         // Construtor: construir o objeto de RacaServico cim o mínimo para a correta execução
-        public RacaServico(ClinicaVeterinarioContexto contexto)
+        public RacaServico(IRacaRepositorio racaRepositorio)
         {
-            _racaRepositorio = new RacaRepositorio(contexto);
+            _racaRepositorio = racaRepositorio;
         }
 
         // A classe RacaServico irá implementar a interface IRacaService,

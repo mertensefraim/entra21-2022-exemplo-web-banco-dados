@@ -1,4 +1,5 @@
-﻿using Entra21.CSharp.ClinicaVeterinaria.Repositorio.Mapeamentos;
+﻿using Entra21.CSharp.ClinicaVeterinaria.Repositorio.Entidades;
+using Entra21.CSharp.ClinicaVeterinaria.Repositorio.Mapeamentos;
 using Entra21.CSharp.ClinicaVeterinario.Repositorio.Entidades;
 using Microsoft.EntityFrameworkCore;
 
@@ -7,6 +8,7 @@ namespace Entra21.CSharp.ClinicaVeterinario.Repositorio.BancoDados
     public class ClinicaVeterinarioContexto : DbContext
     {
         public DbSet<Raca> Racas { get; set; }
+        public DbSet<Veterinario> Veterinarios { get; set; }
 
         public ClinicaVeterinarioContexto(DbContextOptions<ClinicaVeterinarioContexto> options) : base(options)
         {
@@ -30,6 +32,7 @@ namespace Entra21.CSharp.ClinicaVeterinario.Repositorio.BancoDados
             *     - executar a aplicação irá aplicar a migration */
 
             modelBuilder.ApplyConfiguration(new RacaMapeamento());
+            modelBuilder.ApplyConfiguration(new VeterinarioMapeamento());
 
         }
     }

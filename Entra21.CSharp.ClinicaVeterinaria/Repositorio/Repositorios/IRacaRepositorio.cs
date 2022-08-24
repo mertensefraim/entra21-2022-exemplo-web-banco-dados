@@ -1,6 +1,6 @@
 ﻿using Entra21.CSharp.ClinicaVeterinario.Repositorio.Entidades;
 
-namespace Entra21.CSharp.ClinicaVeterinario.Repositorio
+namespace Entra21.CSharp.ClinicaVeterinaria.Repositorio.Repositorios
 {
     public interface IRacaRepositorio
     {

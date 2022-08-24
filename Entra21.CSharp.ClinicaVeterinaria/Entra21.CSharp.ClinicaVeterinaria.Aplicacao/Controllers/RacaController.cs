@@ -1,6 +1,5 @@
 ﻿using Entra21.CSharp.ClinicaVeterinaria.Servico;
-using Entra21.CSharp.ClinicaVeterinaria.Servico.ViewModels;
-using Entra21.CSharp.ClinicaVeterinario.Repositorio.BancoDados;
+using Entra21.CSharp.ClinicaVeterinaria.Servico.ViewModels.Racas;
 using Entra21.CSharp.ClinicaVeterinario.Repositorio.Enums;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,9 +9,9 @@ namespace Entra21.CSharp.ClinicaVeterinaria.Aplicacao.Controllers
     {
         private readonly IRacaServico _racaServico;
 
-        public RacaController(ClinicaVeterinarioContexto contexto)
+        public RacaController(IRacaServico racaServico)
         {
-            _racaServico = new RacaServico(contexto);
+            _racaServico = racaServico;
         }
 
         /// <summary>
